@@ -1,0 +1,62 @@
+
+const boxes = {
+  'B1': {length: 20, width: 20},
+  'B2': {length: 40, width: 20},
+  'B3': {length: 40, width: 40}
+}
+
+const pets = {
+  'R': {length: 20, width: 20},
+  'H': {length: 20, width: 20},
+  'M': {length: 40, width: 20},
+  'S': {length: 40, width: 20}
+}
+
+let boxesArea =  {
+  'B1': {area :  boxes['B1'].length * boxes['B1'].width},
+  'B2': {area :  boxes['B2'].length * boxes['B2'].width},
+  'B3': {area :  boxes['B3'].length * boxes['B3'].width}
+};
+
+let petsArea = {
+  'R': {area :  pets['R'].length * pets['R'].width },
+  'H': {area :  pets['H'].length * pets['H'].width},
+  'M': {area :  pets['M'].length * pets['M'].width},
+  'S': {area :  pets['S'].length * pets['S'].width}
+};
+
+let result = [];
+
+let input1 = ['R','H', 'S'];
+let input2 = ['M'];
+let input3 = ['S', 'H', 'R', 'M'];
+let input4 = ['R', 'H', 'H'];
+
+for (var i = 0; i < input1.length; i++) {
+  console.log(input1[i]);
+  console.log(petsArea[input1[i]].area )
+  if(input1[i] == 'S')
+  {
+    result.push('B3');
+  }
+}
+
+var sum = 0;
+
+for (var i = 0; i < input1.length; i++) {
+  if(input1[i] != 'S')
+  {
+    sum = sum + petsArea[input1[i]].area 
+  }
+}
+
+  let arr = ['B1', 'B2', 'B3'];
+  for (var j = 0; j < arr.length && sum != 0; j++) {
+    if(boxesArea[arr[j]].area >= sum)
+    {
+      result.push(arr[j]);
+      sum = 0;
+    }
+  }
+  
+  console.log(result)
